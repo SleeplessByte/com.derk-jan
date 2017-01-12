@@ -5,8 +5,9 @@ import Tile from '../tile'
 import Grid from '../grid'
 import Hero from '../hero'
 import Header from '../header'
-import Publications from '../publications'
-import Experience from '../Experience'
+import Well from '../well'
+import Publications from './publications'
+import Experience from './experience'
 
 export default class Home extends Component {
 
@@ -71,9 +72,10 @@ export default class Home extends Component {
 			<div class={style.home}>
 				<Hero ref={(_ref) => this.hero = _ref} />
 				<Header ref={(_ref) => this.header = _ref } onHero={true} fixed={this.state.headerFixed} />
-				<Experience />
+				<Well>
+					<Experience />
+				</Well>
 				<Publications />
-				
 			</div>
 		)
 	}

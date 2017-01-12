@@ -1,0 +1,13 @@
+.well {
+    overflow: hidden;
+
+    &:after {
+        box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.12);
+        height: 4px;
+        background: #FAFAFA;
+        position: relative;
+        content: '';
+        display: block;
+        z-index: 1;
+    }
+}

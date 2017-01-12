@@ -7,20 +7,18 @@ import Link from 'react-toolbox/lib/link'
 
 import style from './style'
 
-import YoutubIcon from '../icons/youtube'
-import MediumIcon from '../icons/medium'
-import BookIcon from '../icons/book'
+import YoutubIcon from '../../icons/youtube'
+import MediumIcon from '../../icons/medium'
+import BookIcon from '../../icons/book'
 
-const retroshareMedia = require('../../assets/retroshare.png')
-const darknetMedia = require('../../assets/laptop.png')
-const prepMedia = require('../../assets/medication.png')
+const retroshareMedia = require('../../../assets/retroshare.png')
+const darknetMedia = require('../../../assets/laptop.png')
+const prepMedia = require('../../../assets/medication.png')
 
 export default class Publications extends Component {
 	render() {
 		return (
 			<section className={style.publications}>
-				<h2 className={style.header}>Publications</h2>
-
 				<Card className={style.publication}  style={{ width: 'initial' }}>
 					<CardMedia style={{ background: 'url(../assets/tedx.jpg)' }}>
 						<iframe style={{ visibility: 'hidden' }} onMouseOver={() => {} } height="300" src="" frameborder="0" allowfullscreen data-src='https://www.youtube.com/embed/mktOKzWUPN0'></iframe>
@@ -32,7 +30,7 @@ export default class Publications extends Component {
 							</Avatar>
 						</Link>
 					)} title='TEDxDelftSalon' subtitle='14min talk' />
-					<CardTitle title='Alone in the light' />
+					<CardTitle title='Alone in the light' style={{ paddingTop: '4px' }} />
 					<CardText style={{ lineHeight: '1.5' }}>
 						Humans have a remarkable quality over all other species. We have the ability to inflict fear upon ourselves. When we're young, most of us are afraid
 						of the things that live under our beds, but as we grow up we usually stop being scared as we know that there's nothing hiding. It's Ignorance that feeds
@@ -40,7 +38,7 @@ export default class Publications extends Component {
 						so we can stop fearing the unknown. But once we get to the light, it can be very lonely.
 					</CardText>
 					<CardActions>
-						<Button href="http://djdex.net/tedx" neutral label='Watch on Youtube' />
+						<Button href="http://djdex.net/tedx" accent flat label='Watch on Youtube' />
 					</CardActions>
 				</Card>
 					
@@ -59,7 +57,7 @@ export default class Publications extends Component {
 						this prevention drug out of the general healthcare package.
 					</CardText>
 					<CardActions>
-						<Button href="https://www.dropbox.com/s/9jvmkiksh2zciwy/BaileyVanDijke_Radio1.wav?dl=0" neutral label='Listen on Dropbox' />
+						<Button href="https://www.dropbox.com/s/9jvmkiksh2zciwy/BaileyVanDijke_Radio1.wav?dl=0" accent flat label='Listen on Dropbox' />
 					</CardActions>
 				</Card>
 
@@ -81,7 +79,7 @@ export default class Publications extends Component {
 						their consequences.
 					</CardText>
 					<CardActions>
-						<Button href="https://medium.com/@SleeplessByte/retroshare-network-configurations-f31225b133f1" neutral label='Read article on Medium' />
+						<Button href="https://medium.com/@SleeplessByte/retroshare-network-configurations-f31225b133f1" accent flat label='Read article on Medium' />
 					</CardActions>
 				</Card>
 
@@ -106,7 +104,7 @@ export default class Publications extends Component {
 						it comes to obscuring the act and the data itself or the pollution of fake fi les by agencies that try to stop our happy sharing activities.
 					</CardText>
 					<CardActions>
-						<Button href="https://www.dropbox.com/s/k8zffdd9e28qreu/j16n1_website.pdf?dl=0" neutral label='Read article on Dropbox' />
+						<Button href="https://www.dropbox.com/s/k8zffdd9e28qreu/j16n1_website.pdf?dl=0" accent flat label='Read article on Dropbox' />
 					</CardActions>
 				</Card>
 
@@ -124,7 +122,7 @@ export default class Publications extends Component {
 						I . I save. I press the button. I watch the spinner. Code lights up as exceptions are thrown.
 					</CardText>
 					<CardActions>
-						<Button href="https://medium.com/@SleeplessByte/bits-and-pieces-21b4bb41e880" neutral label='Read poem on Medium' />
+						<Button href="https://medium.com/@SleeplessByte/bits-and-pieces-21b4bb41e880" accent flat label='Read poem on Medium' />
 					</CardActions>
 				</Card>
 			</section>
