@@ -1,15 +1,15 @@
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import autoprefixer from 'autoprefixer';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import ReplacePlugin from 'replace-bundle-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
-import path from 'path';
+import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import autoprefixer from 'autoprefixer'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import ReplacePlugin from 'replace-bundle-webpack-plugin'
+import OfflinePlugin from 'offline-plugin'
+import path from 'path'
 
-const ENV = process.env.NODE_ENV || 'development';
+const ENV = process.env.NODE_ENV || 'development'
 
-const CSS_MAPS = ENV!=='production';
+const CSS_MAPS = ENV!=='production'
 
 module.exports = {
 	context: path.resolve(__dirname, "src"),
@@ -22,7 +22,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['', '.jsx', '.js', '.json', '.less'],
+		extensions: ['', '.jsx', '.js', '.tsx', '.ts', '.json', '.scss'],
 		modulesDirectories: [
 			path.resolve(__dirname, "src/lib"),
 			path.resolve(__dirname, "node_modules"),
@@ -51,22 +51,27 @@ module.exports = {
 				loader: 'babel'
 			},
 			{
-				// Transform our own .(less|css) files with PostCSS and CSS-modules
-				test: /\.(less|css)$/,
+				test: /\.tsx?$/,
+				exclude: /node_modules/,
+				loaders: ['babel', 'ts']
+			},
+			{
+				// Transform our own .(scss|css) files with PostCSS and CSS-modules
+				test: /\.(scss|css)$/,
 				include: [path.resolve(__dirname, 'src/components')],
 				loader: ExtractTextPlugin.extract('style?singleton', [
-					`css-loader?modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
+					`css-loader?modules&importLoaders=1&localIdentName=[local]__[hash:base64:5]&sourceMap=${CSS_MAPS}`,
 					'postcss-loader',
-					`less-loader?sourceMap=${CSS_MAPS}`
+					`sass-loader?sourceMap=${CSS_MAPS}`
 				].join('!'))
 			},
 			{
-				test: /\.(less|css)$/,
+				test: /\.(scss|css)$/,
 				exclude: [path.resolve(__dirname, 'src/components')],
 				loader: ExtractTextPlugin.extract('style?singleton', [
-					`css?sourceMap=${CSS_MAPS}`,
+					`css?modules&importLoaders=1&&localIdentName=[local]__[hash:base64:5]&sourceMap=${CSS_MAPS}`,
 					`postcss`,
-					`less?sourceMap=${CSS_MAPS}`
+					`sass?sourceMap=${CSS_MAPS}`
 				].join('!'))
 			},
 			{
@@ -82,6 +87,10 @@ module.exports = {
 				loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
 			}
 		]
+	},
+
+	sassLoader: {
+		data: '@import "' + path.resolve('src/theme').replace(/\\/g, '/') + '/_theme.scss";'
 	},
 
 	postcss: () => [
@@ -137,7 +146,7 @@ module.exports = {
 	devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
 
 	devServer: {
-		port: process.env.PORT || 8080,
+		port: process.env.PORT || 4000,
 		host: 'localhost',
 		colors: true,
 		publicPath: '/',
@@ -152,4 +161,4 @@ module.exports = {
 			// }
 		}
 	}
-};
+}

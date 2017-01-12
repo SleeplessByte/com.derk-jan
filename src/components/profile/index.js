@@ -1,5 +1,5 @@
-import { h, Component } from 'preact';
-import style from './style';
+import { h, Component } from 'preact'
+import style from './style'
 
 export default class Profile extends Component {
 	state = {
@@ -9,22 +9,22 @@ export default class Profile extends Component {
 	// gets called when this route is navigated to
 	componentDidMount() {
 		// start a timer for the clock:
-		this.timer = setInterval(::this.updateTime, 1000);
-		this.updateTime();
+		this.timer = setInterval(::this.updateTime, 1000)
+		this.updateTime()
 
 		// every time we get remounted, increment a counter:
-		this.setState({ count: this.state.count+1 });
+		this.setState({ count: this.state.count+1 })
 	}
 
 	// gets called just before navigating away from the route
 	componentWillUnmount() {
-		clearInterval(this.timer);
+		clearInterval(this.timer)
 	}
 
 	// update the current time
 	updateTime() {
-		let time = new Date().toLocaleString();
-		this.setState({ time });
+		let time = new Date().toLocaleString()
+		this.setState({ time })
 	}
 
 	// Note: `user` comes from the URL, courtesy of our router

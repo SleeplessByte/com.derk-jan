@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "target": "es6",
+    "noImplicitAny": true,
+    "noImplicitUseStrict": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "baseUrl": "./src",
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
+}

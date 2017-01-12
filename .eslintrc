@@ -20,7 +20,7 @@
     "no-empty-pattern": 0,
     "no-unused-vars": [0, { "varsIgnorePattern": "^h$" }],
     "no-cond-assign": 1,
-    "semi": 2,
+    "semi": [2, "never"],
     "camelcase": 0,
     "comma-style": 2,
     "comma-dangle": [2, "never"],
