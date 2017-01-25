@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
@@ -12,12 +13,14 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const path = require('path')
 
 const ENV = process.env.NODE_ENV || 'development'
+const SERVICE_WORKER = process.env.SERVICE_WORKER === 'on' || ENV === 'production' ? 'on' : 'off'
 
 const CSS_MAPS = ENV !== 'production'
 const JS_MAPS = ENV !== 'production'
 
 const DEFINITIONS = {
-  'process.env.NODE_ENV': `'${ENV}'`
+  'process.env.NODE_ENV': `'${ENV}'`,
+  'process.env.SERVICE_WORKER': `'${SERVICE_WORKER}'`
 }
 
 module.exports = {
@@ -179,6 +182,7 @@ module.exports = {
     ])
   ]).concat(ENV === 'production'
   ? [
+
     // Strip out babel-helper invariant checks
     new ReplacePlugin([{
       // this "partten" is actually the property name https://github.com/kimhou/replace-bundle-webpack-plugin/issues/1
@@ -187,7 +191,10 @@ module.exports = {
     }, {
       pattern: /throw\s+(new\s+)?[a-zA-Z]+Error\s*\(/g,
       replacement: () => 'return;('
-    }]),
+    }])
+
+  ] : []).concat(SERVICE_WORKER === 'on'
+  ? [
 
     // Build the service worker and offline manifest
     new OfflinePlugin({
@@ -198,6 +205,7 @@ module.exports = {
       },
       publicPath: '/'
     })
+
   ] : []),
 
   stats: { colors: true },

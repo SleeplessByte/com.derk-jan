@@ -11,7 +11,7 @@ function init() {
 }
 
 // register ServiceWorker via OfflinePlugin, for prod only:
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || process.env.SERVICE_WORKER === 'on') {
   require('./pwa')
 }
 
