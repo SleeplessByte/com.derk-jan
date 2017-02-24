@@ -1,4 +1,4 @@
-@import 'helpers';
+@import 'helpers.pcss';
 
 html, body {
 	height: 100%;
@@ -11,12 +11,14 @@ html, body {
 	color: #444;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+  
+  & #app {
+    height: 100%;
+  }
+
 }
 
 * {
 	box-sizing: border-box;
-}
-
-#app {
-	height: 100%;
 }

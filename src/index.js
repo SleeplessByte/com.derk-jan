@@ -12,7 +12,11 @@ function init() {
 
 // register ServiceWorker via OfflinePlugin, for prod only:
 if (process.env.NODE_ENV === 'production' || process.env.SERVICE_WORKER === 'on') {
-  require('./pwa')
+  try {
+    require('./pwa')
+  } catch (e) {
+    console.log("PWA error", e)
+  }
 }
 
 // in development, set up HMR:

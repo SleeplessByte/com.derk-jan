@@ -13,19 +13,19 @@
   display: flex;
   flex-wrap: wrap;
   flex: 0 0 25%;
-}
+  
+  & .tile {
+    display: block;
+    flex: 0 0 50%;
+  }
 
-.cluster .tile {
-  display: block;
-  flex: 0 0 50%;
-}
+  &.long {
+    flex: 0 0 50%;
 
-.cluster.long {
-  flex: 0 0 50%;
-}
-
-.cluster.long .tile {
-  flex: 0 0 25%;
+    & .tile {
+      flex: 0 0 25%;
+    }
+  }
 }
 
 .tile {
@@ -33,79 +33,81 @@
   flex: 0 0 12.5%;
   align-self: center;
   text-align: center;
-}
+  
+  &.big {
+    flex: 0 0 25%;
+  }
 
-.tile.big {
-  flex: 0 0 25%;
-}
+  & img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
 
-.tile img {
-  display: block;
-  max-width: 100%;
-  width: 100%;
-  height: auto;
+    transition:
+      box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1), 
+      transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+    &:hover {
+      box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.4);
+      transform: scale(1.1, 1.1);
+    }
+  }
 
-  transition:
-    box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1), 
-    transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.tile img:hover {
-  box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.4);
-  transform: scale(1.1, 1.1);
-}
-
-.tile:hover {
-  z-index: 1;
+  &:hover {
+    z-index: 1;
+  }
 }
 
 @media screen and (max-width: 1903px) {
-  .cluster, 
-  .cluster.long {
-    flex: 0 0 33.33%;
-  }
+  .cluster {
+    &, &.long {
+      flex: 0 0 33.33%;
 
-  .cluster .tile, 
-  .cluster.long .tile {
-    flex: 0 0 50%;
+      & .tile {
+        flex: 0 0 50%;
+      }
+    }
   }
 
   .tile {
     flex: 0 0 16.666%;
-  }
 
-  .tile.big {
-    flex: 0 0 33.333%;
+    &.big {
+      flex: 0 0 33.333%;
+    }
   }
 }
 
 
 @media screen and (max-width: 959px) {
-  .cluster, 
-  .cluster.long {
-    flex: 0 0 50%;
+  .cluster {
+    &, &.long {
+      flex: 0 0 50%;
+    }
   }
  
   .tile {
     flex: 0 0 50%;
+    
+    &.big {
+      flex: 0 0 50%;
+    }
   }
-
-  .tile.big {
-    flex: 0 0 50%;
-  }
-
 }
 
 @media screen and (max-width: 599px) {
-  .cluster, 
-  .cluster.long {
+  .cluster {
+    &, &.long {
       flex: 0 0 100%;
+    }
   }
 
   .tile {
-      flex: 0 0 50%;
-  }
-  .tile.big {
+    flex: 0 0 50%;
+    
+    &.big {
       flex: 0 0 100%;
+    }
   }
 }
