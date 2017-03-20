@@ -7,84 +7,31 @@
   "title": "Derk-Jan Karrenbeld",
   "branch": "master",
   "style": {
-    "name": "Default",
+    "name": "Material",
     "componentSet": {
-      "nav": "nav/BasicNav",
-      "header": "header/BannerHeader",
+      "nav": "nav/DarkAbsoluteNav",
+      "header": "header/GradientHeader",
       "article": "article/BasicArticle",
       "footer": "footer/BasicFooter"
     },
-    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
-    "fontWeight": 400,
-    "bold": 600,
-    "lineHeight": 1.5,
-    "typeScale": [
-      72,
-      48,
-      24,
-      20,
-      16,
-      14,
-      12
-    ],
-    "monospace": "Menlo, monospace",
+    "fontFamily": "Roboto, sans-serif",
     "heading": {
-      "fontFamily": null,
-      "fontStyle": null,
-      "fontWeight": 600,
-      "lineHeight": 1.25,
-      "textTransform": null,
-      "letterSpacing": null
-    },
-    "h0": {},
-    "h1": {},
-    "h2": {},
-    "h3": {},
-    "h4": {},
-    "h5": {},
-    "h6": {},
-    "alternativeText": {},
-    "space": [
-      0,
-      8,
-      16,
-      32,
-      48,
-      64,
-      96
-    ],
-    "layout": {
-      "maxWidth": 1024,
-      "centered": false
+      "fontWeight": 500,
+      "letterSpacing": "-0.01em"
     },
     "colors": {
-      "text": "#111",
+      "text": "#212121",
       "background": "#fff",
-      "primary": "#08e",
-      "secondary": "#059",
-      "highlight": "#e08",
-      "border": "#ddd",
-      "muted": "#eee"
+      "primary": "#2196f3",
+      "secondary": "#1565c0",
+      "highlight": "#ff4081",
+      "border": "#e0e0e0",
+      "muted": "#f5f5f5"
     },
-    "border": {
-      "width": 1,
-      "radius": 2
-    },
-    "link": {},
-    "button": {
-      "hover": {
-        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
-      }
-    },
-    "input": {},
-    "body": {
-      "margin": 0
-    },
-    "breakpoints": {
-      "xs": "@media screen and (max-width:40em)",
-      "sm": "@media screen and (min-width:40em)",
-      "md": "@media screen and (min-width:52em)",
-      "lg": "@media screen and (min-width:64em)"
+    "layout": {
+      "centered": true,
+      "bannerHeight": "80vh",
+      "maxWidth": 896
     }
   },
   "content": [
@@ -128,7 +75,7 @@
       "metadata": {
         "source": "github.readme"
       },
-      "html": "<h1>Preact Boilerplate / Starter Kit</h1>\n\n<blockquote>\n<p>:guitar: Ready-to-rock <a href=\"https://github.com/developit/preact\">Preact</a> starter project, powered by <a href=\"https://webpack.github.io\">webpack</a>.</p>\n<p>:rocket: If you&apos;re starting a new project using <a href=\"https://github.com/developit/preact\">Preact</a>, you&apos;ve come to the right place.\nBelow is a step-by-step guide that takes you straight from downloading this boilerplate to production.</p>\n<p><strong><a href=\"https://preact-boilerplate.surge.sh\">:boom: View Demo :boom:</a></strong></p>\n</blockquote>\n<hr>\n<h1>Quick-Start Guide</h1>\n<ul>\n<li><a href=\"#installation\">Installation</a></li>\n<li><a href=\"#development-workflow\">Development Workflow</a></li>\n<li><a href=\"#structure\">Structure</a></li>\n<li><a href=\"#css-modules\">CSS Modules</a></li>\n<li><a href=\"#handling-urls\">Handling URLS</a></li>\n<li><a href=\"#react-compatibility\">React Compatibility</a></li>\n</ul>\n<h2>Installation</h2>\n<p><strong>1. Clone this repo:</strong></p>\n<pre>git <span class=\"hljs-built_in\">clone</span> --depth 1 https://github.com/developit/preact-boilerplate.git my-app\n<span class=\"hljs-built_in\">cd</span> my-app</pre><p><strong>2. Make it your own:</strong></p>\n<pre>rm -rf .git &amp;&amp; git init &amp;&amp; npm init</pre><blockquote>\n<p>:information_source: This re-initializes the repo and sets up your NPM project.</p>\n</blockquote>\n<p><strong>3. Install the dependencies:</strong></p>\n<pre>npm install</pre><blockquote>\n<p>You&apos;re done installing! Now let&apos;s get started developing.</p>\n</blockquote>\n<h2>Development Workflow</h2>\n<p><strong>4. Start a live-reload development server:</strong></p>\n<pre>npm run dev</pre><blockquote>\n<p>This is a full web server nicely suited to your project. Any time you make changes within the <code>src</code> directory, it will rebuild and even refresh your browser.</p>\n</blockquote>\n<p><strong>5. Testing with <code>mocha</code>, <code>karma</code>, <code>chai</code>, <code>sinon</code> via <code>phantomjs</code>:</strong></p>\n<pre>npm <span class=\"hljs-built_in\">test</span></pre><blockquote>\n<p>&#x1F31F; This also instruments the code in <code>src/</code> using <a href=\"https://github.com/douglasduteil/isparta\">isparta</a>, giving you pretty code coverage statistics at the end of your tests! If you want to see detailed coverage information, a full HTML report is placed into <code>coverage/</code>.</p>\n</blockquote>\n<p><strong>6. Generate a production build in <code>./build</code>:</strong></p>\n<pre>npm run build</pre><blockquote>\n<p>You can now deploy the contents of the <code>build</code> directory to production!</p>\n<p><strong><a href=\"https://surge.sh\">Surge.sh</a> Example:</strong> <code>surge ./build -d my-app.surge.sh</code></p>\n<p><strong><a href=\"https://www.netlify.com/docs/cli/\">Netlify</a> Example:</strong> <code>netlify deploy</code></p>\n<p><a href=\"https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate\"><img src=\"https://www.netlify.com/img/deploy/button.svg\"></a></p>\n</blockquote>\n<p><strong>5. Start local production server with <a href=\"https://github.com/zeit/serve\">serve</a>:</strong></p>\n<pre>npm start</pre><blockquote>\n<p>This is to simulate a production (CDN) server with gzip. It just serves up the contents of <code>./build</code>.</p>\n</blockquote>\n<hr>\n<h2>Structure</h2>\n<p>Apps are built up from simple units of functionality called Components. A Component is responsible for rendering a small part of an application, given some input data called <code>props</code>, generally passed in as attributes in JSX. A component can be as simple as:</p>\n<pre><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Link</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">Component</span> </span>{\n  render({ to, children }) {\n    <span class=\"hljs-keyword\">return</span> <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">a</span> <span class=\"hljs-attr\">href</span>=<span class=\"hljs-string\">{</span> <span class=\"hljs-attr\">to</span> }&gt;</span>{ children }<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">a</span>&gt;</span></span>;\n  }\n}\n<span class=\"hljs-comment\">// usage:</span>\n&lt;Link to=<span class=\"hljs-string\">&quot;/&quot;</span>&gt;Home&lt;<span class=\"hljs-regexp\">/Link&gt;</span></pre><hr>\n<h2>CSS Modules</h2>\n<p>This project is set up to support <a href=\"https://github.com/css-modules/css-modules\">CSS Modules</a>.  By default, styles in <code>src/style</code> are <strong>global</strong> (not using CSS Modules) to make global declarations, imports and helpers easy to declare.  Styles in <code>src/components</code> are loaded as CSS Modules via <a href=\"https://github.com/webpack/css-loader#css-modules\">Webpack&apos;s css-loader</a>.  Modular CSS namespaces class names, and when imported into JavaScript returns a mapping of canonical (unmodified) CSS classes to their local (namespaced/suffixed) counterparts.</p>\n<p>When imported, this LESS/CSS:</p>\n<pre><span class=\"hljs-selector-class\">.redText</span> { <span class=\"hljs-attribute\">color</span>:red; }\n<span class=\"hljs-selector-class\">.blueText</span> { <span class=\"hljs-attribute\">color</span>:blue; }</pre><p>... returns the following map:</p>\n<pre><span class=\"hljs-keyword\">import</span> styles <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;./style.css&apos;</span>;\n<span class=\"hljs-built_in\">console</span>.log(styles);\n<span class=\"hljs-comment\">// {</span>\n<span class=\"hljs-comment\">//   redText: &apos;redText_local_9gt72&apos;,</span>\n<span class=\"hljs-comment\">//   blueText: &apos;blueText_local_9gt72&apos;</span>\n<span class=\"hljs-comment\">// }</span></pre><p>Note that the suffix for local classNames is generated based on an md5 hash of the file. Changing the file changes the hash.</p>\n<hr>\n<h2>Handling URLS</h2>\n<p>:information_desk_person: This project contains a basic two-page app with <a href=\"http://git.io/preact-router\">URL routing</a>.</p>\n<p>Pages are just regular components that get mounted when you navigate to a certain URL. Any URL parameters get passed to the component as <code>props</code>.</p>\n<p>Defining what component(s) to load for a given URL is easy and declarative. You can even mix-and-match URL parameters and normal props.</p>\n<pre>&lt;Router&gt;\n  &lt;A path=&quot;/&quot; /&gt;\n  &lt;B path=&quot;/b&quot; id=&quot;42&quot; /&gt;\n  &lt;C path=&quot;/c/:id&quot; /&gt;\n&lt;/Router&gt;</pre><hr>\n<h2>React Compatibility</h2>\n<p>This project includes <a href=\"https://github.com/developit/preact-compat\">preact-compat</a> alias in as <code>react</code> and <code>react-dom</code> right out-of-the-box.  This means you can install and use third-party React components, and they will use Preact automatically!  It also means that if you <em>don&apos;t</em> install third-party React components, <code>preact-compat</code> doesn&apos;t get included in your JavaScript bundle - it&apos;s free if you don&apos;t use it &#x1F44D;</p>\n<hr>\n<h2>License</h2>\n<p>MIT</p>\n"
+      "html": "<h1>Preact Boilerplate / Starter Kit</h1>\n<p><a href=\"https://travis-ci.org/developit/preact-boilerplate\"><img src=\"https://travis-ci.org/developit/preact-boilerplate.svg?branch=master\"></a>\n<a href=\"https://gitter.im/developit/preact\"><img src=\"https://badges.gitter.im/Join%20Chat.svg\"></a></p>\n<blockquote>\n<p>:guitar: Ready-to-rock <a href=\"https://github.com/developit/preact\">Preact</a> starter project, powered by <a href=\"https://webpack.github.io\">webpack</a>.</p>\n<p>:rocket: If you&apos;re starting a new project using <a href=\"https://github.com/developit/preact\">Preact</a>, you&apos;ve come to the right place.\nBelow is a step-by-step guide that takes you straight from downloading this boilerplate to production.</p>\n<p><strong><a href=\"https://preact-boilerplate.surge.sh\">:boom: View Demo :boom:</a></strong></p>\n</blockquote>\n<hr>\n<h1>Quick-Start Guide</h1>\n<ul>\n<li><a href=\"#installation\">Installation</a></li>\n<li><a href=\"#development-workflow\">Development Workflow</a></li>\n<li><a href=\"#structure\">Structure</a></li>\n<li><a href=\"#css-modules\">CSS Modules</a></li>\n<li><a href=\"#handling-urls\">Handling URLS</a></li>\n<li><a href=\"#react-compatibility\">React Compatibility</a></li>\n</ul>\n<h2>Installation</h2>\n<p><strong>1. Clone this repo:</strong></p>\n<pre>git <span class=\"hljs-built_in\">clone</span> --depth 1 https://github.com/developit/preact-boilerplate.git my-app\n<span class=\"hljs-built_in\">cd</span> my-app</pre><p><strong>2. Make it your own:</strong></p>\n<pre>rm -rf .git &amp;&amp; git init &amp;&amp; npm init</pre><blockquote>\n<p>:information_source: This re-initializes the repo and sets up your NPM project.</p>\n</blockquote>\n<p><strong>3. Install the dependencies:</strong></p>\n<pre>npm install</pre><blockquote>\n<p>You&apos;re done installing! Now let&apos;s get started developing.</p>\n</blockquote>\n<h2>Development Workflow</h2>\n<p><strong>4. Start a live-reload development server:</strong></p>\n<pre>npm run dev</pre><blockquote>\n<p>This is a full web server nicely suited to your project. Any time you make changes within the <code>src</code> directory, it will rebuild and even refresh your browser.</p>\n</blockquote>\n<p><strong>5. Testing with <code>mocha</code>, <code>karma</code>, <code>chai</code>, <code>sinon</code> via <code>phantomjs</code>:</strong></p>\n<pre>npm <span class=\"hljs-built_in\">test</span></pre><blockquote>\n<p>&#x1F31F; This also instruments the code in <code>src/</code> using <a href=\"https://github.com/douglasduteil/isparta\">isparta</a>, giving you pretty code coverage statistics at the end of your tests! If you want to see detailed coverage information, a full HTML report is placed into <code>coverage/</code>.</p>\n</blockquote>\n<p><strong>6. Generate a production build in <code>./build</code>:</strong></p>\n<pre>npm run build</pre><blockquote>\n<p>You can now deploy the contents of the <code>build</code> directory to production!</p>\n<p><strong><a href=\"https://surge.sh\">Surge.sh</a> Example:</strong> <code>surge ./build -d my-app.surge.sh</code></p>\n<p><strong><a href=\"https://www.netlify.com/docs/cli/\">Netlify</a> Example:</strong> <code>netlify deploy</code></p>\n<p><a href=\"https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate\"><img src=\"https://www.netlify.com/img/deploy/button.svg\"></a></p>\n</blockquote>\n<p><strong>5. Start local production server with <a href=\"https://github.com/zeit/serve\">serve</a>:</strong></p>\n<pre>npm start</pre><blockquote>\n<p>This is to simulate a production (CDN) server with gzip. It just serves up the contents of <code>./build</code>.</p>\n</blockquote>\n<hr>\n<h2>Structure</h2>\n<p>Apps are built up from simple units of functionality called Components. A Component is responsible for rendering a small part of an application, given some input data called <code>props</code>, generally passed in as attributes in JSX. A component can be as simple as:</p>\n<pre><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Link</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">Component</span> </span>{\n  render({ to, children }) {\n    <span class=\"hljs-keyword\">return</span> <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">a</span> <span class=\"hljs-attr\">href</span>=<span class=\"hljs-string\">{</span> <span class=\"hljs-attr\">to</span> }&gt;</span>{ children }<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">a</span>&gt;</span></span>;\n  }\n}\n<span class=\"hljs-comment\">// usage:</span>\n&lt;Link to=<span class=\"hljs-string\">&quot;/&quot;</span>&gt;Home&lt;<span class=\"hljs-regexp\">/Link&gt;</span></pre><hr>\n<h2>CSS Modules</h2>\n<p>This project is set up to support <a href=\"https://github.com/css-modules/css-modules\">CSS Modules</a>.  By default, styles in <code>src/style</code> are <strong>global</strong> (not using CSS Modules) to make global declarations, imports and helpers easy to declare.  Styles in <code>src/components</code> are loaded as CSS Modules via <a href=\"https://github.com/webpack/css-loader#css-modules\">Webpack&apos;s css-loader</a>.  Modular CSS namespaces class names, and when imported into JavaScript returns a mapping of canonical (unmodified) CSS classes to their local (namespaced/suffixed) counterparts.</p>\n<p>When imported, this LESS/CSS:</p>\n<pre><span class=\"hljs-selector-class\">.redText</span> { <span class=\"hljs-attribute\">color</span>:red; }\n<span class=\"hljs-selector-class\">.blueText</span> { <span class=\"hljs-attribute\">color</span>:blue; }</pre><p>... returns the following map:</p>\n<pre><span class=\"hljs-keyword\">import</span> styles <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;./style.css&apos;</span>;\n<span class=\"hljs-built_in\">console</span>.log(styles);\n<span class=\"hljs-comment\">// {</span>\n<span class=\"hljs-comment\">//   redText: &apos;redText_local_9gt72&apos;,</span>\n<span class=\"hljs-comment\">//   blueText: &apos;blueText_local_9gt72&apos;</span>\n<span class=\"hljs-comment\">// }</span></pre><p>Note that the suffix for local classNames is generated based on an md5 hash of the file. Changing the file changes the hash.</p>\n<hr>\n<h2>Handling URLS</h2>\n<p>:information_desk_person: This project contains a basic two-page app with <a href=\"http://git.io/preact-router\">URL routing</a>.</p>\n<p>Pages are just regular components that get mounted when you navigate to a certain URL. Any URL parameters get passed to the component as <code>props</code>.</p>\n<p>Defining what component(s) to load for a given URL is easy and declarative. You can even mix-and-match URL parameters and normal props.</p>\n<pre>&lt;Router&gt;\n  &lt;A path=&quot;/&quot; /&gt;\n  &lt;B path=&quot;/b&quot; id=&quot;42&quot; /&gt;\n  &lt;C path=&quot;/c/:id&quot; /&gt;\n&lt;/Router&gt;</pre><hr>\n<h2>React Compatibility</h2>\n<p>This project includes <a href=\"https://github.com/developit/preact-compat\">preact-compat</a> alias in as <code>react</code> and <code>react-dom</code> right out-of-the-box.  This means you can install and use third-party React components, and they will use Preact automatically!  It also means that if you <em>don&apos;t</em> install third-party React components, <code>preact-compat</code> doesn&apos;t get included in your JavaScript bundle - it&apos;s free if you don&apos;t use it &#x1F44D;</p>\n<hr>\n<h2>License</h2>\n<p>MIT</p>\n"
     },
     {
       "component": "footer",
