@@ -1,25 +1,20 @@
 import { h, Component } from 'preact'
-import { Router } from 'preact-router'
+import { Switch, Route } from 'react-router'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import Home from './home'
 import Profile from './profile'
 
 export default class App extends Component {
-  /** Gets fired when the route changes.
-   *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-   *	@param {string} event.url	The newly routed URL
-   */
-  handleRoute = e => {
-    this.currentUrl = e.url
-  };
-
   render() {
     return (
       <div id="app">
-        <Router onChange={this.handleRoute}>
-          <Home path="/" />
-          <Profile path="/profile/" user="me" />
-          <Profile path="/profile/:user" />
+        <Router>
+          <Switch>
+            <Route path="/" exact={true} component={Home} />
+            <Route path="/profile" exact={true} component={Profile} />
+            <Route path="/profile/:user" component={Profile} />
+          </Switch>
         </Router>
       </div>
     )

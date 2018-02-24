@@ -1,0 +1,15 @@
+{
+  "short_name": "Derk-Jan.com",
+  "name": "Derk-Jan Karrenbeld's personal website",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#c2185b",
+  "background_color": "#ffffff"
+}

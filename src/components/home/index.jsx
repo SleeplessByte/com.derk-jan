@@ -10,73 +10,76 @@ import Publications from './publications'
 import Experience from './experience'
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props)
 
-	state = {
-		scrollTop: document.body.scrollTop,
-		headerFixed: this.scrolledPastHeader
-	}
+    this.onScroll = this.onScroll.bind(this)
+    this.onScrolled = this.onScrolled.bind(this)
 
-	constructor() {
-		super()
+    this.state = {
+      scrollTop: document.body.scrollTop,
+      headerFixed: false
+    }
+  }
 
-		this.onScroll = this.onScroll.bind(this)
-		this.onScrolled = this.onScrolled.bind(this)
-	}
+  componentDidMount() {
+    this.lastScrollTop = document.body.scrollTop
+    document.addEventListener('scroll', this.onScroll, { passive: true })
+  }
 
-	get scrolledPastHeader() {
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.onScroll)
+  }
 
-	}
+  onScroll() {
+    requestAnimationFrame(this.onScrolled)
+  }
 
-	componentDidMount() {
-		this.lastScrollTop = document.body.scrollTop
-		document.addEventListener('scroll', this.onScroll, { passive: true })
-	}
+  onScrolled() {
+    const lastScrollTop = this.lastScrollTop
+    const currentScrollTop = document.body.scrollTop
+    const currentHeaderFixed = this.state.headerFixed
 
-	componentWillUnmount() {
-		document.removeEventListener('scroll', this.onScroll)
-	}
+    this.lastScrollTop = currentScrollTop
 
-	onScroll() {
-		requestAnimationFrame(this.onScrolled)
-	}
+    if (currentHeaderFixed && lastScrollTop < currentScrollTop) {
+      return
+    }
 
-	onScrolled() {
-		const lastScrollTop = this.lastScrollTop
-		const currentScrollTop = document.body.scrollTop
-		const currentHeaderFixed = this.state.headerFixed
+    if (!currentHeaderFixed && lastScrollTop > currentScrollTop) {
+      return
+    }
 
-		this.lastScrollTop = currentScrollTop
+    const heroRect = this.hero.base.getBoundingClientRect()
+    const headerRect = this.header.base.getBoundingClientRect()
+    const headerHeight = headerRect.bottom - headerRect.top
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
 
-		if ( currentHeaderFixed && lastScrollTop < currentScrollTop ) {
-			return
-		}
+    const shouldHeaderBeFixed =
+      heroRect.bottom - headerHeight + scrollTop <= currentScrollTop
 
-		if ( !currentHeaderFixed && lastScrollTop > currentScrollTop ) {
-			return
-		}
-		
-		const heroRect = this.hero.base.getBoundingClientRect()
-		const headerRect = this.header.base.getBoundingClientRect()
-		const headerHeight = headerRect.bottom - headerRect.top
-		const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    if (shouldHeaderBeFixed !== currentHeaderFixed) {
+      this.setState({
+        headerFixed: shouldHeaderBeFixed,
+        scrollTop: currentScrollTop
+      })
+    }
+  }
 
-		const shouldHeaderBeFixed = heroRect.bottom - headerHeight + scrollTop <= currentScrollTop
-
-		if ( shouldHeaderBeFixed !== currentHeaderFixed ) {
-			this.setState({ headerFixed: shouldHeaderBeFixed, scrollTop: currentScrollTop })
-		}
-	}
-
-	render() {
-		return (
-			<div class={style.home}>
-				<Hero ref={(_ref) => this.hero = _ref} />
-				<Header ref={(_ref) => this.header = _ref } onHero={true} fixed={this.state.headerFixed} />
-				<Well>
-					<Experience />
-				</Well>
-				<Publications />
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div class={style.home}>
+        <Hero ref={_ref => (this.hero = _ref)} />
+        <Header
+          ref={_ref => (this.header = _ref)}
+          onHero={true}
+          fixed={this.state.headerFixed}
+        />
+        <Well>
+          <Experience />
+        </Well>
+        <Publications />
+      </div>
+    )
+  }
 }
