@@ -1,5 +1,4 @@
-import * as React from 'preact'
-import { render as preactRender } from 'preact-compat'
+import * as React from 'react'
 import App from './components/app'
 // import registerServiceWorker from './registerServiceWorker'
 import './reboot.css'
@@ -23,8 +22,8 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('BASE_API_URL', process.env.BASE_API_URL)
 }
 
-function render(Component: React.Component) {
-  preactRender(<Component />, document.getElementById('root'))
+function render(Component) {
+  React.render(<Component />, document.getElementById('root'))
 }
 
 render(App)

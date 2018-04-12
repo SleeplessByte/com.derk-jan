@@ -1,4 +1,5 @@
-import { h, Component } from 'preact'
+import * as React from 'react'
+import { Component } from 'react'
 import { Switch, Route } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
 

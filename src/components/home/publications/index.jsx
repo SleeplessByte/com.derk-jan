@@ -1,9 +1,16 @@
-import { h, Component } from 'preact'
-
-import { Card, CardTitle, CardText, CardMedia, CardActions } from 'react-toolbox/lib/card'
-import Avatar from 'react-toolbox/lib/avatar'
-import Button, { IconButton } from 'react-toolbox/lib/button'
-import Link from 'react-toolbox/lib/link'
+import * as React from 'react'
+import { Component } from 'react'
+import {
+  Card,
+  CardPrimaryAction,
+  CardMedia,
+  CardAction,
+  CardActions,
+  CardActionButtons,
+  CardActionIcons
+} from 'rmwc/Card'
+import { Button } from 'rmwc/Button'
+import { Typography } from 'rmwc/Typography'
 
 import style from './style'
 
@@ -16,32 +23,62 @@ const darknetMedia = require('../../../assets/laptop.png')
 const prepMedia = require('../../../assets/medication.png')
 
 export default class Publications extends Component {
-	render() {
-		return (
-			<section className={style.publications}>
-				<Card className={style.publication}  style={{ width: 'initial' }}>
-					<CardMedia style={{ background: 'url(../assets/tedx.jpg)' }}>
-						<iframe style={{ visibility: 'hidden' }} onMouseOver={() => {} } height="300" src="" frameborder="0" allowfullscreen data-src='https://www.youtube.com/embed/mktOKzWUPN0'></iframe>
-					</CardMedia>
-					<CardTitle avatar={(
-						<Link href='http://djdex.net/tedx' active>
-							<Avatar style={{ backgroundColor: '#e62b1e' }}>
-								<YoutubIcon />
-							</Avatar>
-						</Link>
-					)} title='TEDxDelftSalon' subtitle='14min talk' />
-					<CardTitle title='Alone in the light' style={{ paddingTop: '4px' }} />
-					<CardText style={{ lineHeight: '1.5' }}>
-						Humans have a remarkable quality over all other species. We have the ability to inflict fear upon ourselves. When we're young, most of us are afraid
-						of the things that live under our beds, but as we grow up we usually stop being scared as we know that there's nothing hiding. It's Ignorance that feeds
-						our fears and the things we do not understand are almost instinctively seen as dangerous or scary. We try to find the knowledge to get out of the dark
-						so we can stop fearing the unknown. But once we get to the light, it can be very lonely.
-					</CardText>
-					<CardActions>
-						<Button href="http://djdex.net/tedx" accent flat label='Watch on Youtube' />
-					</CardActions>
-				</Card>
-					
+  render() {
+    return (
+      <section className={style.publications}>
+        <Card className={style.publication} style={{ width: 'initial' }}>
+          <CardPrimaryAction>
+            <CardMedia
+              sixteenByNine
+              style={{ background: 'url(../assets/tedx.jpg)' }}
+            >
+              <iframe
+                style={{ visibility: 'hidden' }}
+                onMouseOver={() => {}}
+                height="300"
+                src=""
+                frameborder="0"
+                allowfullscreen
+                data-src="https://www.youtube.com/embed/mktOKzWUPN0"
+              />
+            </CardMedia>
+            <div style={{ padding: '0 1rem 1rem 1rem' }}>
+              <Typography use="title" tag="h2">
+                {/*<Link href='http://djdex.net/tedx' active>
+                  <Avatar style={{ backgroundColor: '#e62b1e' }}>
+                    <YoutubIcon />
+                  </Avatar>
+                  </Link>*/}
+                Alone in the light
+              </Typography>
+              <Typography
+                use="body1"
+                tag="div"
+                theme="text-secondary-on-background"
+              >
+                Humans have a remarkable quality over all other species. We have
+                the ability to inflict fear upon ourselves. When we're young,
+                most of us are afraid of the things that live under our beds,
+                but as we grow up we usually stop being scared as we know that
+                there's nothing hiding. It's Ignorance that feeds our fears and
+                the things we do not understand are almost instinctively seen as
+                dangerous or scary. We try to find the knowledge to get out of
+                the dark so we can stop fearing the unknown. But once we get to
+                the light, it can be very lonely.
+              </Typography>
+            </div>
+          </CardPrimaryAction>
+
+          <CardActions>
+            <CardActionButtons>
+              <CardAction href="http://djdex.net/tedx" accent flat>
+                Watch on Youtube
+              </CardAction>
+            </CardActionButtons>
+          </CardActions>
+        </Card>
+        {/*
+
 				<Card className={style.publication} style={{ width: 'initial' }}>
 					<CardMedia>
 						<img src={prepMedia} alt='Medication' style={{ maxWidth: '100%' }} />
@@ -124,8 +161,9 @@ export default class Publications extends Component {
 					<CardActions>
 						<Button href="https://medium.com/@SleeplessByte/bits-and-pieces-21b4bb41e880" accent flat label='Read poem on Medium' />
 					</CardActions>
-				</Card>
-			</section>
-		)
-	}
+        </Card>
+        */}
+      </section>
+    )
+  }
 }

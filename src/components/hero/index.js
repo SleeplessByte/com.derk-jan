@@ -1,4 +1,5 @@
-import { h, Component } from 'preact'
+import * as React from 'react'
+import { Component } from 'react'
 import style from './style'
 import background from '../../assets/header.jpg'
 
