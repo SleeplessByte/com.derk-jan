@@ -4,6 +4,7 @@ import {
   Card,
   CardPrimaryAction,
   CardMedia,
+  CardMediaContent,
   CardAction,
   CardActions,
   CardActionButtons,
@@ -21,6 +22,7 @@ import BookIcon from '../../icons/book'
 const retroshareMedia = require('../../../assets/retroshare.png')
 const darknetMedia = require('../../../assets/laptop.png')
 const prepMedia = require('../../../assets/medication.png')
+const tedxMedia = require('../../../assets/tedx.jpg')
 
 export default class Publications extends Component {
   render() {
@@ -28,21 +30,25 @@ export default class Publications extends Component {
       <section className={style.publications}>
         <Card className={style.publication} style={{ width: 'initial' }}>
           <CardPrimaryAction>
-            <CardMedia
-              sixteenByNine
-              style={{ background: 'url(../assets/tedx.jpg)' }}
-            >
-              <iframe
-                style={{ visibility: 'hidden' }}
-                onMouseOver={() => {}}
-                height="300"
-                src=""
-                frameborder="0"
-                allowfullscreen
-                data-src="https://www.youtube.com/embed/mktOKzWUPN0"
-              />
+            <CardMedia sixteenByNine>
+              <CardMediaContent>
+                <img
+                  src={tedxMedia}
+                  alt="TEDxDelft Salon"
+                  style={{ maxWidth: '100%' }}
+                />
+                <iframe
+                  style={{ visibility: 'hidden' }}
+                  onMouseOver={() => {}}
+                  height="300"
+                  src=""
+                  frameborder="0"
+                  allowfullscreen
+                  data-src="https://www.youtube.com/embed/mktOKzWUPN0"
+                />
+              </CardMediaContent>
             </CardMedia>
-            <div style={{ padding: '0 1rem 1rem 1rem' }}>
+            <div style={{ padding: '.5rem 1rem 1rem' }}>
               <Typography use="title" tag="h2">
                 {/*<Link href='http://djdex.net/tedx' active>
                   <Avatar style={{ backgroundColor: '#e62b1e' }}>
@@ -77,27 +83,55 @@ export default class Publications extends Component {
             </CardActionButtons>
           </CardActions>
         </Card>
+
+        <Card className={style.publication} style={{ width: 'initial' }}>
+          <CardPrimaryAction>
+            <CardMedia sixteenByNine>
+              <CardMediaContent>
+                <img
+                  src={prepMedia}
+                  alt="Medicine"
+                  style={{ maxWidth: '100%' }}
+                />
+              </CardMediaContent>
+            </CardMedia>
+            <div style={{ padding: '.5rem 1rem 1rem' }}>
+              <Typography use="title" tag="h2">
+                <a href="https://www.dropbox.com/s/9jvmkiksh2zciwy/BaileyVanDijke_Radio1.wav?dl=0">
+                  {/*Avatar icon='radio' />*/}
+                  PrEP and the United Kingdom
+                </a>
+              </Typography>
+              <Typography use="subheading2" tag="h3">
+                2.5min interview
+              </Typography>
+              <Typography
+                use="body1"
+                tag="div"
+                theme="text-secondary-on-background"
+              >
+                Interview by Bailey van Dijke about Pre-exposure prophylaxis
+                (PrEP), a new HIV prevention approach where HIV-negative
+                individuals use anti-HIV medications to reduce their risk of
+                becoming infected if they are exposed to the virus and the
+                recent decision by the United Kingdom parliament tol keep this
+                prevention drug out of the general healthcare package.
+              </Typography>
+            </div>
+          </CardPrimaryAction>
+          <CardActions>
+            <CardActionButtons>
+              <CardAction
+                href="https://www.dropbox.com/s/1yignmnq84685xm/BaileyVanDijke_Radio1.wav?dl=0"
+                accent
+                flat
+              >
+                Listen on Dropbox
+              </CardAction>
+            </CardActionButtons>
+          </CardActions>
+        </Card>
         {/*
-
-				<Card className={style.publication} style={{ width: 'initial' }}>
-					<CardMedia>
-						<img src={prepMedia} alt='Medication' style={{ maxWidth: '100%' }} />
-					</CardMedia>
-					<CardTitle avatar={(
-						<Link href='https://www.dropbox.com/s/9jvmkiksh2zciwy/BaileyVanDijke_Radio1.wav?dl=0' active>
-							<Avatar icon='radio' />
-						</Link>
-					)} title='PrEP and the United Kingdom' subtitle='2.5min interview' />
-					<CardText style={{ lineHeight: '1.5' }}>
-						Interview by Bailey van Dijke about Pre-exposure prophylaxis (PrEP), a new HIV prevention approach where HIV-negative individuals use anti-HIV
-						medications to reduce their risk of becoming infected if they are exposed to the virus and the recent decision by the United Kingdom parliament tol keep
-						this prevention drug out of the general healthcare package.
-					</CardText>
-					<CardActions>
-						<Button href="https://www.dropbox.com/s/9jvmkiksh2zciwy/BaileyVanDijke_Radio1.wav?dl=0" accent flat label='Listen on Dropbox' />
-					</CardActions>
-				</Card>
-
 				<Card className={style.publication} style={{ width: 'initial' }}>
 					<CardMedia>
 						<img src={retroshareMedia} alt='Network cable' style={{ maxWidth: '100%' }} />

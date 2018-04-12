@@ -22,7 +22,7 @@ export default class Header extends Component {
     const classNameNav = style.navigation
 
     return (
-      <Toolbar className={classNameAppbar}>
+      <Toolbar className={classNameAppbar} fixed>
         <ToolbarRow>
           <ToolbarTitle>Derk-Jan.com</ToolbarTitle>
 
