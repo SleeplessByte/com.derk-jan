@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const MediumIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,10 @@ export const MediumIcon = () => (
   </svg>
 )
 
-export const MediumIconButton = props => (
-  <IconToggle {...props}>
+export const MediumToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <MediumIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
+
 export default MediumIcon

@@ -9,15 +9,13 @@ import Profile from './profile'
 export default class App extends Component {
   render() {
     return (
-      <div id="app">
-        <Router>
-          <Switch>
-            <Route path="/" exact={true} component={Home} />
-            <Route path="/profile" exact={true} component={Profile} />
-            <Route path="/profile/:user" component={Profile} />
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <div id="app">
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/profile" exact={true} component={Profile} />
+          <Route path="/profile/:user" component={Profile} />
+        </div>
+      </Router>
     )
   }
 }

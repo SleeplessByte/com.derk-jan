@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const TumblrIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,9 @@ export const TumblrIcon = () => (
   </svg>
 )
 
-export const TumblrIconButton = props => (
-  <IconToggle {...props}>
+export const TumblrToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <TumblrIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
 export default TumblrIcon

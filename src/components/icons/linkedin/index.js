@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,10 @@ export const LinkedInIcon = () => (
   </svg>
 )
 
-export const LinkedInIconButton = props => (
-  <IconToggle {...props}>
+export const LinkedInToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <LinkedInIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
+
 export default LinkedInIcon

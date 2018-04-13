@@ -25,7 +25,7 @@ const thingsImpliedLogo = require('../../../assets/work/things.jpg')
 export default class Experience extends Component {
   render() {
     return (
-      <section className={style.experience}>
+      <section className={style.experience} aria-label="Work Experience">
         <div className={`${style.tile} ${style.big}`}>
           <img src={xpbytesLogo} alt="XP Bytes logo" />
         </div>

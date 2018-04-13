@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const TwitterIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,9 @@ export const TwitterIcon = () => (
   </svg>
 )
 
-export const TwitterIconButton = props => (
-  <IconToggle {...props}>
+export const TwitterToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <TwitterIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
 export default TwitterIcon

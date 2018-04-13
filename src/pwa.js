@@ -22,7 +22,7 @@ const isLocalhost = Boolean(
 export default function register() {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      const swUrl = `http://localhost:5000/service-worker.js`
+      const swUrl = `${window.location.protocol}//${window.location.host}/sw.js`
 
       if (!isLocalhost) {
         // Is not local host. Just register service worker

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const FacebookIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +8,9 @@ export const FacebookIcon = () => (
   </svg>
 )
 
-export const FacebookIconButton = props => (
-  <IconToggle {...props}>
+export const FacebookToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <FacebookIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
 export default FacebookIcon

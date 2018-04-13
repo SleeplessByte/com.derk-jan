@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const YoutubeIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,9 @@ export const YoutubeIcon = () => (
   </svg>
 )
 
-export const YoutubeIconButton = props => (
-  <IconToggle {...props}>
+export const YoutubeToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <YoutubeIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
 export default YoutubeIcon

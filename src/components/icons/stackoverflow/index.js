@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const StackOverflowIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,9 @@ export const StackOverflowIcon = () => (
   </svg>
 )
 
-export const StackOverflowIconButton = props => (
-  <IconToggle {...props}>
+export const StackOverflowToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <StackOverflowIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
-export default StackOverflowIconButton
+export default StackOverflowIcon

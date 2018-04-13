@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const GithubIcon = () => (
   <svg viewBox="0 0 284 277">
@@ -7,9 +7,9 @@ export const GithubIcon = () => (
   </svg>
 )
 
-export const GithubIconButton = props => (
-  <IconToggle {...props}>
+export const GithubToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <GithubIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
 export default GithubIcon

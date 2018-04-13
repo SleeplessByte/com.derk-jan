@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IconToggle } from 'rmwc/IconToggle'
+import { ToolbarIcon } from 'rmwc/Toolbar'
 
 export const InstagramIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -7,9 +7,9 @@ export const InstagramIcon = () => (
   </svg>
 )
 
-export const InstagramIconButton = props => (
-  <IconToggle {...props}>
+export const InstagramToolbarIcon = props => (
+  <ToolbarIcon {...props} tag="a">
     <InstagramIcon />
-  </IconToggle>
+  </ToolbarIcon>
 )
 export default InstagramIcon
