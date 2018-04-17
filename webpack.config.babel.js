@@ -75,6 +75,7 @@ module.exports = {
     }),
     // new PreloadWebpackPlugin(),
     new CopyWebpackPlugin([
+      { from: './public/icons', to: 'icons' },
       { from: './public/favicon.ico', to: 'favicon.ico' },
       { from: './public/manifest.webmanifest', to: 'manifest.webmanifest' },
     ]),
@@ -82,7 +83,8 @@ module.exports = {
       ServiceWorker: {
         minify: false,
         events: true
-      }
+      },
+      AppCache: false
     })
   ],
   resolve: {
