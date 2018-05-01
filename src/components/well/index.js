@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { Component } from 'react'
+import { h, Component } from 'preact'
 import style from './style'
 
 export default class Well extends Component {

@@ -1,7 +1,8 @@
-import * as React from 'react'
-import { Component } from 'react'
+import { h, Component } from 'preact';
 import style from './style'
-import background from '../../assets/header.jpg'
+import background from 'assets/header.jpg'
+
+import root from 'window-or-global'
 
 const HEIGHT_CHANGE_TOLERANCE = 100
 
@@ -16,9 +17,9 @@ export default class Hero extends Component {
       ready: false,
 
       needFixedViewportHeight: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
+        typeof navigator !== 'undefined' && navigator.userAgent || 'SSR'
       ),
-      viewportHeight: window.innerHeight,
+      viewportHeight: root.innerHeight || 1024,
       elementHeight: undefined,
       elementToViewportRatio: 1
     }
@@ -30,12 +31,13 @@ export default class Hero extends Component {
 
   componentDidMount() {
     if (this.state.needFixedViewportHeight) {
+      const height = root.innerHeight || 1024
       this.setState({
-        viewportHeight: window.innerHeight,
+        viewportHeight: height,
         elementHeight: this.element.offsetHeight,
-        elementToViewportRatio: this.element.offsetHeight / window.innerHeight
+        elementToViewportRatio: this.element.offsetHeight / height
       })
-      window.addEventListener('resize', this.onResize, { passive: true })
+      root.addEventListener('resize', this.onResize, { passive: true })
     }
 
     setTimeout(this.ready.bind(this), 0)
@@ -43,7 +45,7 @@ export default class Hero extends Component {
 
   conponentWillUnmount() {
     if (this.state.needFixedViewportHeight) {
-      window.removeEventListener('resize', this.onResize)
+      root.removeEventListener('resize', this.onResize)
     }
   }
 
@@ -53,13 +55,14 @@ export default class Hero extends Component {
 
   onResized() {
     // Fixes the height for when the browser bar is being removed
+    const height = root.innerHeight || 1024
     if (
-      Math.abs(this.state.viewportHeight - window.innerHeight) >
+      Math.abs(this.state.viewportHeight - height) >
       HEIGHT_CHANGE_TOLERANCE
     ) {
       this.setState({
-        viewportHeight: window.innerHeight,
-        elementHeight: window.innerHeight * this.state.elementToViewportRatio
+        viewportHeight: height,
+        elementHeight: height * this.state.elementToViewportRatio
       })
     }
   }
@@ -73,14 +76,14 @@ export default class Hero extends Component {
         : { height: `${this.state.elementHeight}px` }
 
     return (
-      <div
+      <figure
         class={classNameHero}
         ref={_ => (this.element = _)}
         style={elementStyle}
       >
         <div class={classNameOverlay} />
         <img src={background} alt="Derk-Jan Karenbeld at Courmayeur" />
-      </div>
+      </figure>
     )
   }
 }

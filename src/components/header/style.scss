@@ -1,0 +1,75 @@
+.toolbar__icon {
+  flex-shrink: 0;
+}
+
+.toolbar__icon-inner {
+  width: 100%;
+}
+
+.overflow {
+  color: rgba(0, 0, 0, .87);
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    color: inherit !important;
+  }
+}
+
+.header {
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(194, 24, 91, 0) !important;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0),
+              0 1px 10px 0 rgba(0, 0, 0, 0),
+              0 2px 4px -1px rgba(0, 0, 0, 0);
+
+  transition: background-color 195ms cubic-bezier(0.4, 0.0, 0.6, 1);
+              /*box-shadow 195ms cubic-bezier(0.4, 0.0, 0.6, 1);*/
+
+  will-change: background-color;
+
+  &--fixed {
+    position: fixed;
+    bottom: initial;
+    top: 0;
+    background-color: #c2185b !important;
+
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14),
+                0 1px 10px 0 rgba(0, 0, 0, .12),
+                0 2px 4px -1px rgba(0, 0, 0, .2);
+
+    transition: background-color 215ms cubic-bezier(0.0, 0.0, 0.2, 1);
+
+  }
+
+  &__title {
+    align-self: flex-end;
+  }
+
+  &__overflow {
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    &__menu-list {
+      flex-direction: row;
+    }
+
+    &__overflow {
+      flex-direction: row;
+    }
+  }
+}
