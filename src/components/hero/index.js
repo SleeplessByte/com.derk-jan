@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component } from 'preact'
 import style from './style'
 import background from 'assets/header.jpg'
 
@@ -17,7 +17,7 @@ export default class Hero extends Component {
       ready: false,
 
       needFixedViewportHeight: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        typeof navigator !== 'undefined' && navigator.userAgent || 'SSR'
+        (typeof navigator !== 'undefined' && navigator.userAgent) || 'SSR'
       ),
       viewportHeight: root.innerHeight || 1024,
       elementHeight: undefined,
@@ -57,8 +57,7 @@ export default class Hero extends Component {
     // Fixes the height for when the browser bar is being removed
     const height = root.innerHeight || 1024
     if (
-      Math.abs(this.state.viewportHeight - height) >
-      HEIGHT_CHANGE_TOLERANCE
+      Math.abs(this.state.viewportHeight - height) > HEIGHT_CHANGE_TOLERANCE
     ) {
       this.setState({
         viewportHeight: height,

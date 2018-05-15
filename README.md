@@ -4,7 +4,7 @@ Super performant `Material` app for preact world using [preact-material-componen
 
 ## CLI Commands
 
-``` bash
+```bash
 # install dependencies
 npm install
 

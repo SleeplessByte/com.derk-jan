@@ -78,7 +78,8 @@ export default class Publications extends Component {
               href="http://djdex.net/tedx"
               rel="noopener noreferrer"
               accent
-              flat>
+              flat
+            >
               Watch on Youtube
             </Button>
           </Card.Actions>

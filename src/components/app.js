@@ -1,15 +1,17 @@
-import { h, Component } from 'preact';
-import { Router } from 'preact-router';
-import Helmet from 'preact-helmet';
+import { h, Component } from 'preact'
+import { Router } from 'preact-router'
+import Helmet from 'preact-helmet'
 
-import Home from '../routes/home';
-import Profile from 'async!../routes/profile';
+import Home from '../routes/home'
+import Profile from 'async!../routes/profile'
 
 export default class App extends Component {
   render() {
     return (
       <div id="app">
-        <noscript>Please enable JavaScript or go to https://xpbytes.com</noscript>
+        <noscript>
+          Please enable JavaScript or go to https://xpbytes.com
+        </noscript>
         <Helmet
           defaultTitle="Derk-Jan Karrenbeld"
           titleTemplate="Derk-Jan Karrenbeld - %s"
@@ -20,6 +22,6 @@ export default class App extends Component {
           <Profile path="/profile/:user" />
         </Router>
       </div>
-    );
+    )
   }
 }

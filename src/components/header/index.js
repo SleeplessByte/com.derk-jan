@@ -1,12 +1,12 @@
-import { h, Component, cloneElement } from 'preact';
-import { route } from 'preact-router';
-import Toolbar from 'preact-material-components/Toolbar';
-import 'preact-material-components/Toolbar/style.css';
-import Menu from 'preact-material-components/Menu';
-import 'preact-material-components/List/style.css';
-import 'preact-material-components/Menu/style.css';
+import { h, Component, cloneElement } from 'preact'
+import { route } from 'preact-router'
+import Toolbar from 'preact-material-components/Toolbar'
+import 'preact-material-components/Toolbar/style.css'
+import Menu from 'preact-material-components/Menu'
+import 'preact-material-components/List/style.css'
+import 'preact-material-components/Menu/style.css'
 
-import style from './style';
+import style from './style'
 
 import Github from '../icons/github'
 import LinkedIn from '../icons/linkedin'
@@ -19,51 +19,89 @@ import Tumblr from '../icons/tumblr'
 
 const linkTo = path => () => {
   route(path)
-};
+}
 
 const goHome = linkTo('/')
 
-const externalIcon = (Icon, { href, title }) => (props) => {
+const externalIcon = (Icon, { href, title }) => props => {
   const { className } = props
   const additionalClass = props.class || className || ''
   return (
-    <Toolbar.Icon href={href} class={`${style['toolbar__icon']} ${additionalClass}`} rel="noopener noreferrer" title={title}>
+    <Toolbar.Icon
+      href={href}
+      class={`${style['toolbar__icon']} ${additionalClass}`}
+      rel="noopener noreferrer"
+      title={title}
+    >
       <Icon class={style['toolbar__icon-inner']} />
     </Toolbar.Icon>
   )
 }
 
-const GithubIcon = externalIcon(Github, { href: "http://djdex.net/github", title: "@SleeplessByte on Github" })
-const LinkedInIcon = externalIcon(LinkedIn, { href: "http://djdex.net/work", title: "Derk-Jan Karrenbeld on LinkedIn" })
-const MediumIcon = externalIcon(Medium, { href: "http://djdex.net/medium", title: "Derk-Jan Karrenbeld on Medium" })
-const StackOverflowIcon = externalIcon(StackOverflow, { href: "http://djdex.net/so", title: "Derk-Jan Karrenbeld on StackOverflow" })
-const TwitterIcon = externalIcon(Twitter, { href: "http://djdex.net/tweet", title: "@SleeplessByte on Twitter" })
-const FacebookIcon = externalIcon(Facebook, { href: "http://djdex.net/fb", title: "Derk-Jan Karrenbeld on Facebook" })
-const InstagramIcon = externalIcon(Instagram, { href: "http://djdex.net/insta", title: "@SleeplessByte on Instagram"})
-const TumblrIcon = externalIcon(Tumblr, { href: "http://djdex.net/fb", title: "Derk-Jan on Tumblr" })
+const GithubIcon = externalIcon(Github, {
+  href: 'http://djdex.net/github',
+  title: '@SleeplessByte on Github'
+})
+const LinkedInIcon = externalIcon(LinkedIn, {
+  href: 'http://djdex.net/work',
+  title: 'Derk-Jan Karrenbeld on LinkedIn'
+})
+const MediumIcon = externalIcon(Medium, {
+  href: 'http://djdex.net/medium',
+  title: 'Derk-Jan Karrenbeld on Medium'
+})
+const StackOverflowIcon = externalIcon(StackOverflow, {
+  href: 'http://djdex.net/so',
+  title: 'Derk-Jan Karrenbeld on StackOverflow'
+})
+const TwitterIcon = externalIcon(Twitter, {
+  href: 'http://djdex.net/tweet',
+  title: '@SleeplessByte on Twitter'
+})
+const FacebookIcon = externalIcon(Facebook, {
+  href: 'http://djdex.net/fb',
+  title: 'Derk-Jan Karrenbeld on Facebook'
+})
+const InstagramIcon = externalIcon(Instagram, {
+  href: 'http://djdex.net/insta',
+  title: '@SleeplessByte on Instagram'
+})
+const TumblrIcon = externalIcon(Tumblr, {
+  href: 'http://djdex.net/fb',
+  title: 'Derk-Jan on Tumblr'
+})
 
-const hiddenStyle = { display: 'none' };
-const visibleStyle = {};
+const hiddenStyle = { display: 'none' }
+const visibleStyle = {}
 
 class Overflowable extends Component {
   renderOverflow() {
     return (
-      <Menu.Anchor style={this.props.overflow ? visibleStyle : hiddenStyle }>
-        <Toolbar.Icon class={style['toolbar__icon']} onclick={e => {
-          this.overflowMenu.MDComponent.open = true
-        }}>
-          <svg class={style['toolbar__icon-inner']} height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+      <Menu.Anchor style={this.props.overflow ? visibleStyle : hiddenStyle}>
+        <Toolbar.Icon
+          class={style['toolbar__icon']}
+          onclick={e => {
+            this.overflowMenu.MDComponent.open = true
+          }}
+        >
+          <svg
+            class={style['toolbar__icon-inner']}
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
           </svg>
         </Toolbar.Icon>
         <Menu
           ref={menu => {
-            this.overflowMenu = menu;
+            this.overflowMenu = menu
           }}
           class={style.overflow}
         >
-          { this.renderChildren(true) }
+          {this.renderChildren(true)}
         </Menu>
       </Menu.Anchor>
     )
@@ -71,23 +109,24 @@ class Overflowable extends Component {
 
   renderRegular() {
     return (
-      <div style={this.props.overflow ? hiddenStyle : visibleStyle } class={style['header__menu-list']}>
-        { this.renderChildren(false) }
+      <div
+        style={this.props.overflow ? hiddenStyle : visibleStyle}
+        class={style['header__menu-list']}
+      >
+        {this.renderChildren(false)}
       </div>
     )
   }
 
   renderChildren(overflow) {
-    return this.props.children.map(
-      child => cloneElement(child, { overflow })
-    )
+    return this.props.children.map(child => cloneElement(child, { overflow }))
   }
 
   render() {
     return (
       <Toolbar.Section align-end class={style['header__overflow']}>
-        { this.renderOverflow() }
-        { this.renderRegular() }
+        {this.renderOverflow()}
+        {this.renderRegular()}
       </Toolbar.Section>
     )
   }
@@ -100,7 +139,6 @@ class Overflowable extends Component {
 }
 
 class OverflowableItem extends Component {
-
   constructor(props) {
     super(props)
 
@@ -122,14 +160,14 @@ class OverflowableItem extends Component {
     }
 
     const Icon = this.props.icon
-    return (<Icon />)
+    return <Icon />
   }
 
   renderAsOverflowMenuItem() {
     const Icon = this.props.icon
     return (
       <Menu.Item class={style['overflow__item']} onClick={this.onClick}>
-        <Icon class={style['overflow__icon']} ref={this.setIconRef}/>
+        <Icon class={style['overflow__icon']} ref={this.setIconRef} />
         {this.props.label}
       </Menu.Item>
     )
@@ -151,7 +189,10 @@ export default class Header extends Component {
             <Overflowable.Item icon={GithubIcon} label="Github" />
             <Overflowable.Item icon={LinkedInIcon} label="LinkedIn" />
             <Overflowable.Item icon={MediumIcon} label="Medium" />
-            <Overflowable.Item icon={StackOverflowIcon} label="Stack Overflow" />
+            <Overflowable.Item
+              icon={StackOverflowIcon}
+              label="Stack Overflow"
+            />
             <Overflowable.Item icon={TwitterIcon} label="Twitter" />
             <Overflowable.Item icon={FacebookIcon} label="Facebook" />
             <Overflowable.Item icon={InstagramIcon} label="Instagram" />
@@ -159,6 +200,6 @@ export default class Header extends Component {
           </Overflowable>
         </Toolbar.Row>
       </Toolbar>
-    );
+    )
   }
 }

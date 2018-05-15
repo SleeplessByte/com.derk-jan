@@ -16,7 +16,6 @@ function sizeOfHeaderAtWidth(width) {
 }
 
 export default class Home extends Component {
-
   state = {
     foldBoundary: 1024
   }
@@ -32,7 +31,6 @@ export default class Home extends Component {
 
   componentDidMount() {
     root.addEventListener('resize', this.onResize, { passive: true })
-
   }
 
   conponentWillUnmount() {
@@ -55,7 +53,8 @@ export default class Home extends Component {
   onResized() {
     this.rafId = undefined
 
-    const foldBoundary = (root.innerHeight || 0) - sizeOfHeaderAtWidth(root.innerWidth || 0)
+    const foldBoundary =
+      (root.innerHeight || 0) - sizeOfHeaderAtWidth(root.innerWidth || 0)
     if (this.state.foldBoundary !== foldBoundary) {
       this.setState({ foldBoundary })
     }
@@ -65,11 +64,14 @@ export default class Home extends Component {
     return (
       <div class={style.home}>
         <Hero />
-        <BoundaryScrollTracker boundary={this.state.foldBoundary} render={({ boundaryPassed }) => {
-          return <Header fixed={boundaryPassed} />
-        }} />
+        <BoundaryScrollTracker
+          boundary={this.state.foldBoundary}
+          render={({ boundaryPassed }) => {
+            return <Header fixed={boundaryPassed} />
+          }}
+        />
         <BelowTheFold />
       </div>
-    );
+    )
   }
 }

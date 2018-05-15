@@ -18,8 +18,9 @@ export class BoundaryScrollTracker extends Component {
   }
 
   componentDidMount() {
-    this.lastScrollTop = document && document.body.scrollTop || 0
-    document && document.addEventListener('scroll', this.onScroll, { passive: true })
+    this.lastScrollTop = (document && document.body.scrollTop) || 0
+    document &&
+      document.addEventListener('scroll', this.onScroll, { passive: true })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -47,11 +48,12 @@ export class BoundaryScrollTracker extends Component {
   onScrolled() {
     this.rafId = undefined
 
-    const currentScrollTop = document && document.body.scrollTop || 0
-    const scrollTop = root.pageYOffset || (document && document.documentElement.scrollTop) || 0
+    const currentScrollTop = (document && document.body.scrollTop) || 0
+    const scrollTop =
+      root.pageYOffset || (document && document.documentElement.scrollTop) || 0
     const boundaryPassed = this.props.boundary - scrollTop <= currentScrollTop
 
-    if ( boundaryPassed !== this.state.boundaryPassed ) {
+    if (boundaryPassed !== this.state.boundaryPassed) {
       this.setState({ boundaryPassed })
     }
   }
